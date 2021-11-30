@@ -1,0 +1,25 @@
+// randomize ship locations 
+
+using the ship's property of length, figure out a way to randomize ship locations. 
+
+if the generated ship is horizontal, increment elements to the right by 1 times the length number.
+add class list of ship name and class taken. 
+
+if the gernerated ship is not horizontal, increment by 10 times the length number and add class
+list of ship name and class taken. 
+
+// conditionals 
+    1. ships must not overlap one another 
+    2. ships wrap to the next line of the grid
+    2. only the last number of an array can have a zero in it ex. 10, 20, 30, 40, etc.
+
+1. to solve this problem, there will be a conditional statement that checks the numbers of the 
+ship array, and if one of the indexes (which correspond to grid div element) contains the class 
+'taken' then the function is called back until that statement passes. This statement will check all 
+5 ships. 
+
+2. to solve this problem, there will be a conditional statement that checks all numbers of the ship
+array and if a number other than the last index is divisible by 10 with no remainders then the 
+function is repeated until that statment passes. 
+
+at the end, you should be able to randomize the positions of all five ships on the grid. 
