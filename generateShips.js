@@ -1,96 +1,41 @@
 import { shipArray } from "./factories/ship.js";
 import { computerGridArray, userGridArray } from "./script.js";
 
-function randomNumGenerator() {
-    let number = 10;
-    let x = 0;
-    while(x !== number){
-        x = Math.floor((Math.random() * 10) + 1);
-        console.log(x);
-    }
+function getRandomInt(ship) {
+    const randomNum = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
+    const length = ship.length; 
+    const max = Math.ceil((10 - length) + (randomNum * 10));
+    const min = Math.floor(0 + (randomNum * 10));
+    const randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+    return randomInt; 
 }
 
-// generateRandomPosition(shipArray[0]); 
-random(); 
-function generateRandomPosition(ship) {
-    let randomStart = Math.floor(Math.random() * (99 - 0 + 1)) + 1;
+function generateRandomHorizontalPosition(ship) {
+    let randomInt = getRandomInt(ship); 
     let arr = [];
     for (let i = 0; i < ship.length; i++) {
-        arr.push(randomStart++);
-    } 
+        arr.push(randomInt++);
+    }
     return arr;
 }
 
-function random() {
-    let arr = generateRandomPosition(shipArray[0]);
-    let i = 1;
-    while (i < arr.length) {
-        if (arr[i] % 10 === 0) {
-            arr = generateRandomPosition(shipArray[0]);
-            console.log('number is divisible by ten');
-        } else {
-            console.log('number is not divisible by ten')
-            i++;
-        }
+function generate() {
+    const randomShipsArr = [];
+    for (let i = 0; i < shipArray.length; i++) {
+        const ship = generateRandomHorizontalPosition(shipArray[i]);
+        randomShipsArr.push(ship);
     }
-    // for(let i = 1; i < arr.length; i++) {
-    //     if (arr[i] % 10 === 0) {
-    //         arr = generateRandomPosition(shipArray[0]);
-    //         console.log('number is divisible by ten');
-    //     } else {
-    //         console.log('number is not divisible by ten')
-    //     }
+    // for (let i = 0; i < randomShipsArr.length; i++) {
+    //     if (computerGridArray)
     // }
-    console.log(arr); 
+    return randomShipsArr;
 }
 
-
-// generate();
-
-//generateRandom(shipArray[0]);
-//console.log(generateRandom(shipArray[0]));
-
-// function generateRandom(ship) {
-//     let randomStart = Math.floor(Math.random() * (99 - 0 + 1)) + 1;
-//     const arr = []; 
-//     for (let i = 0; i < ship.length; i++) {
-//         arr.push(randomStart++);
-//     } 
-//     // console.log(arr);
-//     for (let i = 1; i < ship.length; i++) {
-//         if (arr[i] % 10 === 10) return true;
-//         else return false;
+// function randomNumGenerator() {
+//     let number = 10;
+//     let x = 0;
+//     while(x !== number){
+//         x = Math.floor((Math.random() * 10) + 1);
+//         console.log(x);
 //     }
 // }
-
-// function generate() {
-//     let generate = generateRandom(shipArray[0]); 
-//     while (generate === true) {
-//         generate = generateRandom(shipArray[0]);
-//         console.log(generate);
-//     }
-// }
-
-// function checkShip() {
-//     let arr = generate(shipArray[0]);
-//     let exceptFirstArr = arr.slice(- (arr.length - 1));
-//     for (let i = 0; i < exceptFirstArr.length; i++) {
-//         if (exceptFirstArr[i] % 10 === 0) {
-//             checkShip();
-//         } else {
-//             return arr;
-//         }
-//     }
-// }
-
-// console.log(checkShip()); 
-
-// console.log(generate(shipArray[0]));
-
-// function randomizeShips() {
-//     for (let i = 0; i < shipArray.length; i++) {
-//         console.log(generate(shipArray[i]));
-//     }
-// }
-
-// randomizeShips();
