@@ -23,14 +23,25 @@ function generateRandomPosition(ship) {
 
 function random() {
     let arr = generateRandomPosition(shipArray[0]);
-    let i = 1; 
-    while (i )
-    for(let i = 1; i < arr.length; i++) {
-        while(arr[i] % 10 === 0) {
-            arr = generateRandomPosition(shipArray[0]); 
+    let i = 1;
+    while (i < arr.length) {
+        if (arr[i] % 10 === 0) {
+            arr = generateRandomPosition(shipArray[0]);
+            console.log('number is divisible by ten');
+        } else {
+            console.log('number is not divisible by ten')
+            i++;
         }
     }
-    return arr; 
+    // for(let i = 1; i < arr.length; i++) {
+    //     if (arr[i] % 10 === 0) {
+    //         arr = generateRandomPosition(shipArray[0]);
+    //         console.log('number is divisible by ten');
+    //     } else {
+    //         console.log('number is not divisible by ten')
+    //     }
+    // }
+    console.log(arr); 
 }
 
 
